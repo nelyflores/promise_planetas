@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Planetas</title>
+  </head>
+
+  <body>
+      <h1 id="">Exoplanet Explorer</h1>
+      <h2>query: earth-like planets</h2>
+      <div id="informacionPlaneta"></div>
+      <div id="informacionPlanetad"></div>
+      <div id="informacionPlanetat"></div>
+      <div id="informacionPlanetac"></div>
+      <div id="informacionPlanetaci"></div>
+      <div id="informacionPlanetas"></div>
+      <script>
+      var planeta=document.getElementById('informacionPlaneta')
+      function getJSON(url){
+        return new Promise(function(resolve, reject){
+          var ajax = new XMLHttpRequest();
+          ajax.open("GET",url);
+          ajax.send();
+          ajax.onreadystatechange = function(){
+            if(ajax.readyState == 4){
+              resolve(JSON.parse(ajax.responseText));
+
+            }
+
+
+          }
+
+        })
+      }
+
+      getJSON("data/earth-like-results.json")
+      .then(function (mensaje) {return(getJSON(mensaje.results[0]))})
+      .then(function (resultado){informacionPlaneta.insertAdjacentHTML('beforeend',resultado.pl_name + '<br>' + 'Discovered in '+ resultado.pl_disc + ' with'+ resultado.pl_telescope)})
+      getJSON("data/earth-like-results.json")
+      .then(function (mensaje) {return(getJSON(mensaje.results[1]))})
+      .then(function (resultado){informacionPlanetad.insertAdjacentHTML('beforeend',resultado.pl_name + '<br>' + 'Discovered in '+ resultado.pl_disc + ' with'+ resultado.pl_telescope)})
+      getJSON("data/earth-like-results.json")
+      .then(function (mensaje) {return(getJSON(mensaje.results[2]))})
+      .then(function (resultado){informacionPlanetat.insertAdjacentHTML('beforeend',resultado.pl_name + '<br>' + 'Discovered in '+ resultado.pl_disc + ' with'+ resultado.pl_telescope)})
+      getJSON("data/earth-like-results.json")
+      .then(function (mensaje) {return(getJSON(mensaje.results[3]))})
+      .then(function (resultado){informacionPlanetac.insertAdjacentHTML('beforeend',resultado.pl_name + '<br>' + 'Discovered in '+ resultado.pl_disc + ' with'+ resultado.pl_telescope)})
+      getJSON("data/earth-like-results.json")
+      .then(function (mensaje) {return(getJSON(mensaje.results[4]))})
+      .then(function (resultado){informacionPlanetaci.insertAdjacentHTML('beforeend',resultado.pl_name + '<br>' + 'Discovered in '+ resultado.pl_disc + ' with'+ resultado.pl_telescope)})
+      getJSON("data/earth-like-results.json")
+      .then(function (mensaje) {return(getJSON(mensaje.results[5]))})
+      .then(function (resultado){informacionPlanetas.insertAdjacentHTML('beforeend',resultado.pl_name + '<br>' + 'Discovered in '+ resultado.pl_disc + ' with'+ resultado.pl_telescope)})
+
+      </script>
+
+
+  </body>
+</html>

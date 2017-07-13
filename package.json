@@ -1,0 +1,14 @@
+{
+  "name": "planetas",
+  "version": "1.0.0",
+  "description": "ejercicio planetas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nely",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
